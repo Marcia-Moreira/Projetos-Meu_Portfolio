@@ -1,0 +1,313 @@
+<!-- Arquivo Braço de Cavaquinho - Usar no Celular -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <title>Simulador Cordas do Cavaquinho no Celular</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            /* Fixa à Direita: */
+            position: fixed;
+            right: 0;
+            margin-right: 10px;
+            margin-left: 10px;
+            border-left: 3px solid #53320f;
+            border-right: 3px solid #53320f;
+        }
+        h4 {
+            color: #fff;
+            text-align: center;
+        }
+        button {
+            background-color: #b57129;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #img-mao {
+            background-color: rgb(91, 46, 1);
+            max-width: 300px;
+            min-width: 250px;
+            height: 50px;
+            padding-top: 5px;
+        }
+        .cavaquinho-braco {
+            background-color: #e59a21;
+            color: #53320f;
+            padding-top: 5px;
+        }
+        .nomeNota {
+            padding-top: 5px;
+            font-weight: 700;
+        }
+        .container-nomeNota {
+            display: grid;
+            grid-template-columns: 32px 30px 28px 26px;
+            row-gap: 0px;
+            column-gap: 30px;
+            justify-items: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .container-braco {
+            background-color: #b57129;
+            /* padding: 10px; */
+            /* margin: 10px; */
+            display: grid;
+            /* Largura Tamanho da mão: */
+            max-width: 300px;
+            min-width: 250px;
+            /* Comprimento do braço: */
+            min-height: 250px;
+        }
+        .container-linha {
+            display: grid;
+            grid-template-columns: 32px 30px 28px 26px;
+            /* grid-template-rows: 20px 18px 16px 14px; */
+            row-gap: 0px;
+            column-gap: 30px;
+            justify-items: center;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Cordas do Cavaquinho: */
+        .item-braco {
+            background-color: rgb(91, 46, 1);
+            text-align: center;
+            width: 30px;
+            color: #fff;
+            font-size: 12px;
+            padding-top: 2px;
+        }
+        /* ALTURA DAS CASAS: */
+        .l1 {
+            height: 80px;
+        }
+        .l2 {
+            height: 75px;
+        }
+        .l3 {
+            height: 70px;
+        }
+        .l4 {
+            height: 65px;
+        }
+        .l5 {
+            height: 60px;
+        }
+        .l6 {
+            height: 55px;
+        }
+        /* LARGURA DAS CORDAS: */
+        .c1 {
+            width: 10px;
+        }
+        .c2 {
+            width: 12px;
+        }
+        .c3 {
+            width: 14px;
+        }
+        .c4 {
+            width: 16px;
+        }
+        /* Trastes: */
+        .linha1,
+        .linha2,
+        .linha3,
+        .linha4,
+        .linha5,
+        .linha6 {
+            border: 1px solid #e59a21;
+            border-top: 2px solid #C5A880;
+            border-bottom: 2px solid #C5A880;
+        }
+
+        .cavaquinho-corpo {
+            background-color: #e59a21;
+        }
+    </style>
+</head>
+<body>
+    <section class="cavaquinho-mao">
+        <div id="img-mao">
+            <h4>Mão do Cavaquinho</h4>
+        </div>
+    </section>
+    <section class="cavaquinho-braco">
+        <h4>Braço do Cavaquinho</h4>
+        <div class="container-nomeNota">
+            <div class="nomeNota">RÉ</div>
+            <div class="nomeNota">SOL</div>
+            <div class="nomeNota">SI</div>
+            <div class="nomeNota">RÉ</div>
+        </div>
+        <div class="container-braco">
+            <div class="container-linha linha1">
+                <div class="item-braco l1 c4">4</div>
+                <div class="item-braco l1 c3">3</div>
+                <div class="item-braco l1 c2">2</div>
+                <div class="item-braco l1 c1">1</div>
+            </div>
+            <div class="container-linha linha2">
+                <div class="item-braco l2 c4">4</div>
+                <div class="item-braco l2 c3">3</div>
+                <div class="item-braco l2 c2">2</div>
+                <div class="item-braco l2 c1">1</div>
+            </div>
+            <div class="container-linha linha3">
+                <div class="item-braco l3 c4">4</div>
+                <div class="item-braco l3 c3">3</div>
+                <div class="item-braco l3 c2">2</div>
+                <div class="item-braco l3 c1">1</div>
+            </div>
+            <div class="container-linha linha4">
+                <div class="item-braco l4 c4">4</div>
+                <div class="item-braco l4 c3">3</div>
+                <div class="item-braco l4 c2">2</div>
+                <div class="item-braco l4 c1">1</div>
+            </div>
+            <div class="container-linha linha5">
+                <div class="item-braco l5 c4">4</div>
+                <div class="item-braco l5 c3">3</div>
+                <div class="item-braco l5 c2">2</div>
+                <div class="item-braco l5 c1">1</div>
+            </div>
+            <div class="container-linha linha6">
+                <div class="item-braco l6 c4">4</div>
+                <div class="item-braco l6 c3">3</div>
+                <div class="item-braco l6 c2">2</div>
+                <div class="item-braco l6 c1">1</div>
+            </div>
+        </div>
+    </section>
+    <section class="cavaquinho-corpo">
+        <h4>Corpo do Cavaquinho</h4>
+    </section>
+    <!-- <script src="./script-funcoes_principais.js"></script> -->
+    <!-- <script src="./script-web_audio_api.js"></script> -->
+    <!-- <script src="./script_pre-carregamento_audio.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Seleciona todos os elementos que representam casas e cordas do cavaquinho
+            const items = document.querySelectorAll('.item-braco');
+            let isFrozen = false;
+
+            // Adiciona um botão para congelar e descongelar a tela
+            const freezeButton = document.createElement('button');
+            freezeButton.textContent = "Congelar Tela";
+            freezeButton.style.position = "fixed";
+            freezeButton.style.left = "10px";
+            freezeButton.style.top = "10px";
+            freezeButton.style.zIndex = "1000";
+            document.body.appendChild(freezeButton);
+
+            // Função para congelar/descongelar a tela
+            freezeButton.addEventListener('click', () => {
+                isFrozen = !isFrozen;
+                
+                // Congelar rotação da tela se suportado
+                if (isFrozen && screen.orientation) {
+                    screen.orientation.lock(screen.orientation.type).catch(() => {
+                        console.warn("Este navegador não suporta bloqueio de orientação.");
+                    });
+                } else if (screen.orientation) {
+                    screen.orientation.unlock();
+                }
+                
+                // Congelar zoom e scroll
+                document.body.style.overflow = isFrozen ? "hidden" : "auto";
+                document.documentElement.style.overflow = isFrozen ? "hidden" : "auto";
+
+                if (isFrozen) {
+                    document.querySelector('meta[name="viewport"]')?.remove();
+                    const metaTag = document.createElement('meta');
+                    metaTag.name = "viewport";
+                    metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+                    document.head.appendChild(metaTag);
+                } else {
+                    document.querySelector('meta[name="viewport"]')?.remove();
+                    const metaTag = document.createElement('meta');
+                    metaTag.name = "viewport";
+                    metaTag.content = "width=device-width, initial-scale=1.0";
+                    document.head.appendChild(metaTag);
+                }
+
+                // Atualizar o texto do botão
+                freezeButton.textContent = isFrozen ? "Descongelar Tela" : "Congelar Tela";
+            });
+
+            // Função para reproduzir som com base na linha e coluna
+            function tocarSom(linha, coluna) {
+                const sufixo = audioSufixos[`${linha}_${coluna}`];
+                if (sufixo) {
+                    const audioPath = `./sounds/linha${linha}_corda${coluna}-${sufixo}.wav`;
+                    const audio = new Audio(audioPath);
+                    audio.play().catch(error => console.error("Erro ao tocar o som:", error));
+                } else {
+                    console.warn(`Sufixo não encontrado para linha ${linha}, coluna ${coluna}`);
+                }
+            }
+
+            // Mapeamento dos sufixos dos arquivos de som para cada linha e coluna
+            const audioSufixos = {
+                '1_1': 'D2', '1_2': 'B1', '1_3': 'G1', '1_4': 'D1',
+                '2_1': 'D2s', '2_2': 'C2', '2_3': 'G2s', '2_4': 'D1s',
+                '3_1': 'E2', '3_2': 'C2s', '3_3': 'A1', '3_4': 'E1',
+                '4_1': 'F2', '4_2': 'D2', '4_3': 'A1s', '4_4': 'F1',
+                '5_1': 'F2s', '5_2': 'D2s', '5_3': 'B2', '5_4': 'F1s',
+                '6_1': 'G2', '6_2': 'E2', '6_3': 'C1', '6_4': 'G1'
+            };
+
+            // Adiciona eventos de toque e clique a cada elemento do braço do cavaquinho
+            items.forEach((item) => {
+                item.addEventListener('touchstart', (event) => {
+                    event.preventDefault(); // Impede o clique padrão
+                    const touch = event.touches[0];
+                    const targetItem = document.elementFromPoint(touch.clientX, touch.clientY);
+                    
+                    if (targetItem && targetItem.classList.contains('item-braco')) {
+                        const linha = targetItem.classList.contains('l1') ? 1 :
+                                    targetItem.classList.contains('l2') ? 2 :
+                                    targetItem.classList.contains('l3') ? 3 :
+                                    targetItem.classList.contains('l4') ? 4 :
+                                    targetItem.classList.contains('l5') ? 5 : 6;
+
+                        const coluna = targetItem.classList.contains('c1') ? 1 :
+                                    targetItem.classList.contains('c2') ? 2 :
+                                    targetItem.classList.contains('c3') ? 3 : 4;
+
+                        tocarSom(linha, coluna); // Reproduz o som correspondente
+                    }
+                });
+                
+                // Adiciona evento de clique para desktops
+                item.addEventListener('click', () => {
+                    const linha = item.classList.contains('l1') ? 1 :
+                                item.classList.contains('l2') ? 2 :
+                                item.classList.contains('l3') ? 3 :
+                                item.classList.contains('l4') ? 4 :
+                                item.classList.contains('l5') ? 5 : 6;
+
+                    const coluna = item.classList.contains('c1') ? 1 :
+                                item.classList.contains('c2') ? 2 :
+                                item.classList.contains('c3') ? 3 : 4;
+
+                    tocarSom(linha, coluna); // Reproduz o som correspondente
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- item casa corda -->
+<!-- coluna = corda -->
+<!-- linhas = linha -->
