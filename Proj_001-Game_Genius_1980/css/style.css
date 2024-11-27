@@ -1,0 +1,492 @@
+/**********************************/
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+}
+/**********************************/
+/* 0. Variáveis
+/* 1. Tags
+/* 2. Body
+/* 3. Game
+/*   3.1 Pads
+/*   3.2 Center
+/*      3.2.1 GUI
+/* 4. Instructions
+/* 5. Footer
+/* 6. Responsividade:
+/**********************************/
+
+/**********************************/
+/** Color Guide:
+/**********************************/
+/* 
+/* #00A74A : normal-green
+/* #9F0F17 : normal-red
+/* #CCA707 : normal-yellow
+/* #094A8F : normal-blue
+/* #13ff7c : light-green
+/* #ff4c4c : light-red
+/* #fed93f : light-yellow
+/* #1c8cff : light-blue
+/* #333333 : gray
+/* #ECE7EE : center
+/* #32050C : counter-color
+/*
+/**********************************/
+
+/**********************************/
+/** 0. Variáveis:
+/**********************************/
+:root {
+	--clr-normal-green:   #00A74A;
+	--clr-normal-red:     #9F0F17;
+	--clr-normal-yellow:  #CCA707;
+	--clr-normal-blue:    #094A8F;
+	
+	--clr-light-green:    #13ff7c;
+	--clr-light-red:      #ff4c4c;
+	--clr-light-yellow:   #fed93f;
+	--clr-light-blue:     #1c8cff;
+	
+	--clr-border:		  #333333;
+	--clr-center:  		  #ECE7EE;
+
+	--clr-counter-bg:	  #32050C;
+	--clr-counter-off:	  #430710;
+	--clr-counter-on:	  #DC0D29;
+	
+	--clr-switch: 	      #3193DE;
+
+	--game-size: 48rem;
+	--game-border: 1.5rem solid var(--clr-border);
+}
+/**********************************/
+/** 1. Tags:
+/**********************************/
+html {
+    font-size: 62.5%;
+}
+body {
+	/* background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/retina_wood.png'); */
+    background: linear-gradient(135deg, #867f7f, #f5f5f6);
+    font-family: "Bungee", verdana, sans-serif;
+    
+    background-attachment: fixed;
+    /* height: 100%; */
+}
+#top {
+    scroll-margin-top: 20px;
+}
+#section-instructions {
+    scroll-margin-top: 10px;
+}
+/**********************************/
+/** 2. Body:
+/**********************************/
+.container {
+    width: var(--game-size);
+    margin-left: auto;
+    margin-right: auto;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+.ancora {
+    transition: transform 0.2s ease;
+}
+.ancora:hover {
+    color: var(--clr-normal-blue);
+}
+/**********************************/
+/** 3. Game:
+/**********************************/
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--game-size);
+    height: var(--game-size);
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    position: relative;
+}
+.game__title {
+    font-size: 3.3rem;
+    text-transform: uppercase;
+    margin: 0;
+    padding-top: 2rem;
+    transition: transform 0.2s ease;
+}
+.game__title:hover {
+    transform: scale(1.01);
+}
+/* Estilo de foco para acessibilidade*/
+a:focus {
+    /* outline: 2px dashed #ccc; */
+    outline-offset: 4px;
+}
+.reg {
+    font-family: verdana, sans-serif;
+    font-size: 1.5rem;
+    margin-left: -.2rem;
+    vertical-align: top;
+}
+/**********************************/
+/** 3.1 Pads:
+/**********************************/
+.game__pad {
+    width: calc(var(--game-size) / 2);
+    height: calc(var(--game-size) / 2);
+    border: var(--game-border);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.5);
+    transition: border 0.2s ease, box-shadow 0.2s ease,  transform 0.2s ease;
+    /* Para tirar marca quadrada no click: */
+    outline: none;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+.game__pad:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2), inset -2px -2px 4px rgba(255, 255, 255, 0.7);
+    transform: translateY(2px);
+    transform: scale(1.02);
+}
+.game__pad:focus {
+    outline: none;
+}
+/* Modificadores: */
+.game__pad--tl {
+    background-color: var(--clr-normal-green);
+    border-top-left-radius: 100%;
+}
+.game__pad--tr {
+    background-color: var(--clr-normal-red);
+    border-top-right-radius: 100%;
+}
+.game__pad--bl {
+    background-color: var(--clr-normal-yellow);
+    border-bottom-left-radius: 100%;
+}
+.game__pad--br {
+    background-color: var(--clr-normal-blue);
+    border-bottom-right-radius: 100%;
+}
+/* Para os Pads Brilharem: criar classe no codigo js */
+.game__pad--tl.game__pad--active {
+    background-color: var(--clr-light-green);
+}
+.game__pad--tr.game__pad--active {
+    background-color: var(--clr-light-red);
+}
+.game__pad--bl.game__pad--active {
+    background-color: var(--clr-light-yellow);
+}
+.game__pad--br.game__pad--active {
+    background-color: var(--clr-light-blue);
+}
+/* Para o Pad mudar cursor: criar classe no codigo js */
+.game__pad--btn {
+    cursor: pointer;
+}
+/**********************************/
+/** 3.2 Center:
+/**********************************/
+.game__options {
+    position: absolute; /* Mantém a posição relativa ao .game */
+    background-color: var(--clr-center);
+    width: calc(var(--game-size) / 2);
+    height: calc(var(--game-size) / 2);    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: var(--game-border);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+/* Linhas */
+.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+/* Linha 1: Título */
+.line--title {
+    text-align: center;
+}
+/* Linha 2: Controles */
+.line--controls {
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-end;
+}
+/* Linha 3: Power ON/OFF */
+.line--power {
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+/* Linha 4: Botão Mute e Aceleration */
+
+/**********************************/
+/** 3.2.1 GUI:
+/**********************************/
+.gui {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.group-large {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.gui__label {
+    justify-content: center;
+    text-align: center;
+    margin-top: 0.1rem;
+    font-size: 1.2rem;
+}
+.gui__label--switch {
+    margin: 0;
+    padding-top: 0.75rem;
+}
+.gui__btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 5rem;
+    box-shadow: 0 .2rem .3rem #222;
+    border: .4rem solid #444;
+    cursor: pointer;
+}
+.gui__btn:active {
+    transform: translate(0, .3rem);
+    box-shadow: none;
+}
+.gui__btn--start {
+    background-color: red;
+}
+.gui__btn--strict {
+    background-color: yellow;
+}
+.gui__btn-switch {
+    background-color: #222;
+    margin-top: 1rem;
+    width: 5rem;
+    height: 2rem;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+/* pseudo elemento: */
+.gui__btn-switch::before {
+    content: "";
+    background-color: var(--clr-switch);
+    display: block;
+    position: relative;
+    left: 2.5rem;
+    width: 2.2rem;
+    height: 1.9rem;
+    border-radius: .3rem;
+    border: .2rem solid #333;
+}
+.gui__btn-switch--on::before {
+    left: 0;
+}
+/* Display de Led: */
+.gui__counter {
+    background-color: var(--clr-counter-bg);
+    color: var(--clr-counter-off);
+    font-family: "Iceland", cursive;
+    font-weight: bold;
+    font-size: 3rem;
+    text-align: right;
+    width: 5.5rem;
+    border: .3rem solid #000;
+    border-radius: 1rem;
+}
+.gui__counter--on {
+    color: var(--clr-counter-on);
+}
+.gui__led {
+    background-color: #32050C;
+    margin-bottom: .5rem;
+    width: .8rem;
+    height: .8rem;
+    border: .2rem solid #222;
+    border-radius: 2rem;
+}
+.gui__led--active {
+    background-color: red;
+}
+/* Botão Mute Som */
+.mute-button {
+    background: transparent;
+    border: none;
+    font-size: 1.9rem;
+    cursor: pointer;
+}
+.mute-button:focus {
+    outline: none;
+}
+/* Botão Aceleração */
+.gui__btn-acceleration {
+    background: transparent;
+    border: none;
+    font-size: 1.9rem;
+    cursor: pointer;
+}
+.gui__btn-acceleration.active {
+    background-color: none;
+}
+/**********************************/
+/** 4. Instructions: */
+/**********************************/
+.instructions {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: #333;
+}
+.instructions:hover {
+    background-color: #efecec;
+}
+.instructions h2 {
+    text-align: center;
+    color: var(--clr-normal-blue);
+}
+.instructions .button {
+    font-weight: bold;
+    color: var(--clr-normal-blue);
+    font-style: italic;
+}
+.instructions ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding: 10px 0;
+}
+.instructions ul li {
+    margin-bottom: 10px;
+}
+.instructions p {
+    text-align: justify;
+    line-height: 1.5;
+}
+/* Container do card */
+.card {
+    perspective: 1000px; /* Necessário para transformações 3D */
+    transform-origin: center center;
+}
+.card-inner {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+.card-front, .card-back {
+    position: absolute;
+    backface-visibility: hidden;
+    width: 100%;
+    padding: 20px;
+    /* box-shadow: offset-x offset-y blur-radius spread-radius color; */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    background: #f9f9f9;
+    color: #333;
+}
+/* Estilo da frente e verso */
+.card-back {
+    transform: rotateY(180deg);
+}
+/* Bandeiras para idioma */
+.flags {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    padding-bottom: 20px;
+    cursor: default;
+}
+.flags span {
+    cursor: pointer;
+}
+.flags i {
+    cursor: pointer;
+}
+.flag {
+    font-size: 1.5rem;
+    cursor: default;
+}
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+.botton-top {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: inherit;
+    transition: transform 0.2s ease;
+}
+.botton-top:hover {
+    transform: scale(1.2);
+}
+.card-inner p {
+    margin-bottom: -4px; /* Define a distância entre parágrafos */
+}
+/**********************************/
+/** 5. Footer:
+/**********************************/
+footer {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+footer h3 {
+    margin-bottom: .3rem;
+}
+/**********************************/
+/** 6. Responsividade:
+/**********************************/
+@media (max-width: 600px) {
+    html {
+        font-size: 45%;
+    }
+}
+@media (max-width: 380px) {
+    html {
+        font-size: 35%;
+    }
+}
+
+/**********************************/
+/** Observações Diversas:
+
+-   Fonte padrão 16px
+-   62.5% é equivalente a 10px, logo 40px x 10 = 4rem => 48rem é igual a 480px!!!
+
+*/
+/**********************************/

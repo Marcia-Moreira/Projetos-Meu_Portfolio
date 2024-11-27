@@ -1,0 +1,15 @@
+
+# Ignorar pastas específicas desse projeto:
+arquivos_diversos/
+arquivos_em_construcao/
+
+# Ignorar pastas e arquivos temporários:
+.DS_Store
+node_modules/
+.venv/
+*.log
+*.tmp
+
+# Ignorar configurações de IDE:
+.vscode/
+.idea/
